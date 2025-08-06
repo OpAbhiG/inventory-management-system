@@ -1,54 +1,85 @@
-Inventory Management System - Folder Structure Guide
+# 📦 Inventory Management System
 
-📁 Complete Project Structure
+A responsive web-based system to manage IT inventory with ease and efficiency.
 
+---
+
+## 📁 Project Structure
+
+```
 inventory-management-system/
 │
-├── index.html                # Landing/redirect page (optional)
-├── login.html                # Login page
-├── dashboard.html            # Main dashboard
-├── profile.html              # User profile page
-├── add-item.html             # Add new item form
-├── view-items.html           # View items in category
+├── index.html
+├── login.html
+├── dashboard.html
+├── profile.html
+├── add-item.html
+├── view-items.html
 │
-├── css/                     # All CSS files
-│   ├── main.css             # Global styles
-│   ├── login.css            # Login page styles
-│   ├── dashboard.css        # Dashboard styles
-│   ├── profile.css          # Profile page styles
-│   ├── add-item.css         # Add item form styles
-│   ├── view-items.css       # View items page styles
-│   └── responsive.css       # Mobile responsive styles
+├── css/
+│   ├── main.css
+│   ├── login.css
+│   ├── dashboard.css
+│   ├── profile.css
+│   ├── add-item.css
+│   ├── view-items.css
+│   └── responsive.css
 │
-├── js/                     # All JavaScript files
-│   ├── common.js           # Shared functions & utilities
-│   ├── auth.js             # Authentication functions
-│   ├── login.js            # Login page scripts
-│   ├── dashboard.js        # Dashboard functionality
-│   ├── profile.js          # Profile page scripts
-│   ├── add-item.js         # Add item form scripts
-│   ├── view-items.js       # View items page scripts
-│   └── storage.js          # Local storage management
+├── js/
+│   ├── common.js
+│   ├── auth.js
+│   ├── login.js
+│   ├── dashboard.js
+│   ├── profile.js
+│   ├── add-item.js
+│   ├── view-items.js
+│   └── storage.js
 │
-├── assets/                 # Static assets
-│   ├── images/             # Images and icons
+├── assets/
+│   ├── images/
 │   │   ├── logo.png
 │   │   ├── user-avatar.png
 │   │   └── item-icons/
 │   │       ├── monitor.png
 │   │       ├── cpu.png
 │   │       └── keyboard.png
-│   └── fonts/              # Custom fonts (if any)
+│   └── fonts/
 │
-├── data/                   # Sample data files
+├── data/
 │   ├── sample-inventory.json
 │   └── item-categories.json
 │
-└── docs/                   # Documentation
+└── docs/
     ├── README.md
     ├── installation.md
     └── user-guide.md
+```
 
+---
 
+## 🔧 Features
 
-    
+- User login system
+- Dashboard overview
+- Add new inventory items
+- View and filter items by category
+- User profile management
+- Mobile responsive layout
+
+---
+
+## 📂 Documentation
+
+- `installation.md` – Setup instructions
+- `user-guide.md` – How to use the system
+
+---
+
+## 📝 Sample Data
+
+Use JSON files in the `data/` folder to simulate inventory and categories.
+
+---
+
+**Author:** Abhishek Madhukar Gholap  
+**Location:** HV Desai Hospital, Solapur
