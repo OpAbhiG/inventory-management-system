@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="card shadow-sm">
             <div class="card-body text-center">
                 <h4 class="card-title">${category}</h4>
-                <p class="card-text">Total Items ${items[category].length}</p>
+                <p class="card-text"> ${items[category].length}</p>
             </div>
         </div>
     </a>

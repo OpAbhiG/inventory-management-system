@@ -15,6 +15,22 @@ function initializeNavigation() {
         loadPage(window.location.pathname.split('/').pop() || 'index.html');
     });
 }
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the current page URL
+    const currentPage = window.location.pathname.split('/').pop();
+
+    // Select all nav links
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-item .nav-link');
+
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+});
 
 async function loadPage(page) {
     try {

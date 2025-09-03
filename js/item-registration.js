@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const itemSelection = document.getElementById('itemSelection');
     const itemForm = document.getElementById('itemForm');
     const itemName = document.getElementById('itemName');
+    const customFieldsContainer = document.getElementById('customFieldsContainer');
+    const addCustomFieldBtn = document.getElementById('addCustomFieldBtn');
     const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
     const addMoreBtn = document.getElementById('addMoreBtn');
 
@@ -14,6 +16,18 @@ document.addEventListener('DOMContentLoaded', function () {
         'Monitor': [],
         'Keyboard': []
     };
+
+    // Load existing custom fields for the selected item type
+    let customFields = JSON.parse(localStorage.getItem('customFields')) || {};
+
+    function loadCustomFields(selectedType) {
+        customFieldsContainer.innerHTML = '';
+        if (customFields[selectedType]) {
+            customFields[selectedType].forEach(field => {
+                addCustomFieldElement(field.title, field.type, field.value || '');
+            });
+        }
+    }
 
     // Show/hide custom item input based on selection
     itemType.addEventListener('change', function () {
@@ -43,6 +57,41 @@ document.addEventListener('DOMContentLoaded', function () {
         itemName.value = selectedItem;
         itemSelection.style.display = 'none';
         itemForm.style.display = 'block';
+        loadCustomFields(selectedItem);
+    });
+
+    // Add custom field element
+    function addCustomFieldElement(title = '', type = 'text', value = '') {
+        const fieldDiv = document.createElement('div');
+        fieldDiv.className = 'custom-field';
+        fieldDiv.innerHTML = `
+            <input type="text" class="form-control" placeholder="Field Title" value="${title}" required>
+            <select class="form-select">
+                <option value="text" ${type === 'text' ? 'selected' : ''}>Text</option>
+                <option value="number" ${type === 'number' ? 'selected' : ''}>Number</option>
+            </select>
+            <input type="text" class="form-control" placeholder="Field Value" value="${value}" ${type === 'number' ? 'type="number"' : ''}>
+            <button type="button" class="btn btn-danger btn-sm remove-field"><i class="fas fa-trash"></i></button>
+        `;
+        customFieldsContainer.appendChild(fieldDiv);
+
+        fieldDiv.querySelector('.remove-field').addEventListener('click', function () {
+            fieldDiv.remove();
+        });
+
+        // Update input type dynamically based on select change
+        fieldDiv.querySelector('select').addEventListener('change', function (e) {
+            const input = fieldDiv.querySelector('input[type="text"], input[type="number"]');
+            const newType = e.target.value;
+            const currentValue = input.value;
+            input.type = newType;
+            input.value = currentValue; // Preserve value
+        });
+    }
+
+    // Add new custom field button
+    addCustomFieldBtn.addEventListener('click', function () {
+        addCustomFieldElement();
     });
 
     // Handle form submission
@@ -58,6 +107,23 @@ document.addEventListener('DOMContentLoaded', function () {
             extraDetails: document.getElementById('extraDetails').value,
             addedDate: new Date().toISOString().split('T')[0] // Current date
         };
+
+        // Collect custom fields
+        const customFieldsInputs = customFieldsContainer.querySelectorAll('.custom-field');
+        const newCustomFields = [];
+        customFieldsInputs.forEach(field => {
+            const title = field.querySelector('input[type="text"]').value.trim();
+            const type = field.querySelector('select').value;
+            const value = field.querySelector('input[type="text"], input[type="number"]').value;
+            if (title) {
+                newCustomFields.push({ title, type, value });
+            }
+        });
+
+        if (newCustomFields.length > 0) {
+            customFields[itemData.name] = newCustomFields;
+            localStorage.setItem('customFields', JSON.stringify(customFields));
+        }
 
         // Save item to appropriate category
         if (!items[itemData.name]) {
@@ -76,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
         itemType.value = '';
         customItemDiv.style.display = 'none';
         customItem.value = '';
+        customFieldsContainer.innerHTML = '';
     });
 
     // Handle add more button
