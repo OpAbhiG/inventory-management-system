@@ -83,5 +83,8 @@ Use JSON files in the `data/` folder to simulate inventory and categories.
 
 **Author:** Abhishek Madhukar Gholap  
 **Location:** HV Desai Hospital, Solapur
-**Inventory Management System Documentation:** (https://docs.google.com/document/d/1yHvWdkkrNsxG8SH91ZqArNzycM4RJlgyuH4K07thXTE/edit?usp=sharing)
+## Documentation
+You can find the full system documentation here:  
+[Inventory Management System Docs](https://docs.google.com/document/d/1yHvWdkkrNsxG8SH91ZqArNzycM4RJlgyuH4K07thXTE/edit?usp=sharing)
+
 
