@@ -84,8 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const fromLocation = document.getElementById('relocateFromLocation').value.trim();
         const toLocation = document.getElementById('relocateToLocation').value.trim();
         const relocatedBy = document.getElementById('relocateBy').value.trim();
-        if (!fromLocation || !toLocation || !relocatedBy) {
-            showToast('Please fill in all required fields (From Location, To Location, Relocated By).');
+        const assignedBy = document.getElementById('assignedBy').value.trim();
+        
+        if (!fromLocation || !toLocation || !relocatedBy || !assignedBy) {
+            showToast('Please fill in all required fields (From Location, To Location, Relocated By, Assigned By).');
             return false;
         }
         return true;
@@ -224,6 +226,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     <td>${log.fromLocation}</td>
                     <td>${log.toLocation}</td>
                     <td>${log.relocatedBy}</td>
+
+                    <td>${log.assignedBy || '-'}</td>  <!-- NEW field 14/11/25 -->
+                    
                     <td>${log.reason || '-'}</td>
                     <td>${formatTimestamp(log.timestamp)}</td>
                 `;
@@ -333,6 +338,9 @@ document.addEventListener('DOMContentLoaded', function () {
             fromLocation: document.getElementById('relocateFromLocation').value,
             toLocation: document.getElementById('relocateToLocation').value,
             relocatedBy: document.getElementById('relocateBy').value,
+
+            assignedBy: document.getElementById('assignedBy').value.trim(),  // NEW FIELD 14/11/25
+            
             reason: document.getElementById('relocateReason').value,
             timestamp: getCurrentTimestamp()
         };
