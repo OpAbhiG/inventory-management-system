@@ -1,11 +1,11 @@
-body {
-    background-color: #f8f9fa;
-}
+
 
 .navbar {
     background-color: #007bff;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 .card {
     border: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -62,4 +62,212 @@ body {
     .custom-field .col-md-1 {
         width: 100%;
     }
+}
+
+.taller-navbar {
+    padding-top: 1rem;    /* Increases top padding */
+    padding-bottom: 1rem; /* Increases bottom padding */
+    min-height: 80px;     /* Ensures minimum height */
+    align-items: center;  /* Vertically centers content */
+}
+
+.taller-navbar .navbar-brand,
+.taller-navbar .nav-link {
+    font-size: 1.1rem;    /* Optional: Slightly larger text to match taller bar */
+}
+
+.taller-navbar .navbar-toggler {
+    padding: 0.5rem 0.75rem; /* Makes toggler comfortable */
+}
+
+/* More space between nav links */
+.navbar-nav.gap-4 {
+    gap: 2rem !important; /* Increase space between tabs */
+}
+
+/* Extra padding from right edge */
+.navbar-nav.pe-4 {
+    padding-right: 2rem !important;
+}
+
+/* Fix bounce/jump on hover/active */
+.nav-link {
+    padding: 0.5rem 1rem !important; /* Fixed padding so no shift */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth, no size change */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Fixed size - no increase */
+}
+
+/* Hover effect - background instead of size change */
+.nav-link:hover {
+    background-color: rgba(13, 110, 253, 0.1) !important; /* Light blue background */
+    color: #0d6efd !important;
+}
+
+/* Active page - solid background */
+.nav-link.active {
+    background-color: #0d6efd !important; /* Blue background */
+    color: white !important;
+    font-weight: bold;
+}
+
+/* More space between links and from right edge */
+.navbar-nav {
+    gap: 1rem; /* Space between tabs */
+    padding-right: 2rem; /* Space from right window */
+}
+
+/* Mobile fix */
+@media (max-width: 992px) {
+    .nav-link {
+        padding: 0.75rem 1rem !important;
+        text-align: center;
+    }
+}
+
+
+/* Profile Card - Professional Look */
+.profile-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    background: #e9ecef;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 4rem;
+    color: #6c757d;
+    border: 5px solid #2a8be0;
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #0c2d5e;
+    margin-bottom: 10px;
+}
+
+.profile-id {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.profile-dept {
+    font-size: 1.1rem;
+    color: #495057;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.profile-logout-btn {
+    background: #dc3545;
+    color: white;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.profile-logout-btn:hover {
+    background: #c82333;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(220,53,69,0.3);
+}
+
+/* Ensure Navbar Font Consistency (Override any conflict) */
+/* .navbar .nav-link {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.navbar .nav-link.active {
+    font-weight: 600 !important;
+} */
+
+/* Navbar font – match profile look */
+.custom-navbar .nav-link {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333 !important;
+}
+
+/* Hover */
+.custom-navbar .nav-link:hover {
+    color: #0d6efd !important;
+    background-color: rgba(13,110,253,0.08);
+}
+
+/* Active */
+.custom-navbar .nav-link.active {
+    font-weight: 400;
+    color: #0d6efd !important;
+    background-color: rgba(13,110,253,0.12);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 30px;
+    }
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 3rem;
+    }
+    .profile-name {
+        font-size: 1.5rem;
+    }
+}
+
+/* Base navbar link */
+.custom-navbar .nav-link {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;               /* FIXED weight */
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+
+    /* Smooth animation */
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+
+    will-change: transform;
+}
+
+/* Hover — subtle, no layout change */
+.custom-navbar .nav-link:hover {
+    background-color: rgba(13, 110, 253, 0.08);
+    color: #0d6efd;
+    transform: translateY(-1px);   /* micro-lift */
+}
+
+/* Active page — SAME SIZE, SAME WEIGHT */
+.custom-navbar .nav-link.active {
+    background-color: rgba(13, 110, 253, 0.15);
+    color: #0d6efd;
 }
