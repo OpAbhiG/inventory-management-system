@@ -15,8 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const username = document.getElementById('username').value;
+        const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value;
+        const hospital = document.getElementById('hospital').value;
+
         const validUsername = 'a@123';
         const validPassword = 'A@123';
 
@@ -24,33 +26,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const existingAlerts = document.querySelectorAll('.alert');
         existingAlerts.forEach(alert => alert.remove());
 
-        if (username === validUsername && password === validPassword) {
+        if (username === validUsername && password === validPassword && hospital) {
             showAlert('Login successful! Redirecting...', 'success');
+            
+            // Save login info + selected hospital
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('loginTime', new Date().toISOString());
+            localStorage.setItem('selectedHospital', hospital);  // ← This saves the hospital
 
-            // Attempt navigation with error handling
-            try {
-                setTimeout(() => {
-                    window.location.href = 'dashboard.html';
-                }, 1500);
-            } catch (error) {
-                showAlert('Navigation error. Please ensure dashboard.html exists.', 'danger');
-            }
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 1500);
         } else {
-            showAlert('Invalid credentials. Please try again.', 'danger');
+            let errorMsg = 'Invalid credentials.';
+            if (!hospital) errorMsg = 'Please select a hospital/center.';
+            showAlert(errorMsg + ' Please try again.', 'danger');
         }
     });
 
-    // Function to show alerts
+    // Show alert function (unchanged)
     function showAlert(message, type) {
         const alert = document.createElement('div');
         alert.className = `alert alert-${type} alert-dismissible fade show`;
-        alert.style.top = '20px';
-        alert.style.right = '20px';
-        alert.style.zIndex = '9999';
-        alert.style.minWidth = '300px';
-        
         alert.innerHTML = `
             <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
             ${message}
@@ -58,13 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         document.body.appendChild(alert);
-        
-        // Auto-remove after 3 seconds
+
         setTimeout(() => {
-            if (alert.parentNode) {
-                alert.parentNode.removeChild(alert);
-            }
+            if (alert.parentNode) alert.parentNode.removeChild(alert);
         }, 3000);
     }
 });
-// document.addEventListener('DOMContentLoaded', initializeLogin);
