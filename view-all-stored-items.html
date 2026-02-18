@@ -48,14 +48,31 @@
     
 
     <div class="container mt-5">
-        <h2 class="text-center mb-4">All Stored Items</h2>
+<div class="text-center mb-5">
+    <div class="d-inline-block bg-primary text-white rounded-circle p-4 mb-3 shadow-sm">
+        <i class="fas fa-boxes-stacked fa-2x"></i>
+    </div>
+    <h2 class="fw-bold text-dark mb-2">View All Inventory Items</h2>
+    <p class="text-muted fs-5">Search, filter, manage, and track your stored assets efficiently</p>
+</div>
         <div class="card p-4 shadow-sm">
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <input type="text" class="form-control" id="searchInput" placeholder="Search by name, model, or serial number">
-                </div>
-                <div class="col-md-6">
-                    <select class="form-select" id="filterType">
+<div class="row g-3 mb-4">
+    <div class="col-md-6">
+        <div class="input-group shadow-sm">
+            <span class="input-group-text bg-light">
+                <i class="fas fa-search text-primary"></i>
+            </span>
+            <input type="text" class="form-control" id="searchInput"
+                placeholder="Search by name, model, or serial number">
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="input-group shadow-sm">
+            <span class="input-group-text bg-light">
+                <i class="fas fa-filter text-primary"></i>
+            </span>
+            <select class="form-select" id="filterType">
                         <option value="all">All Item Types</option>
                         <option value="Monitor">Monitor</option>
                         <option value="CPU">CPU</option>
@@ -79,6 +96,7 @@
                             <th class="sortable" data-sort="model">Model <i class="fas fa-sort"></i></th>
                             <th class="sortable" data-sort="serialNumber">Serial Number <i class="fas fa-sort"></i></th>
                             <th class="sortable" data-sort="user">User <i class="fas fa-sort"></i></th>
+                            <th class="sortable" data-sort="vendor">Vendor <i class="fas fa-sort"></i></th>
                             <th class="sortable" data-sort="price">Price <i class="fas fa-sort"></i></th>
                             <th class="sortable" data-sort="buyDate">Buy Date <i class="fas fa-sort"></i></th>
                             <th>Extra Details</th>
@@ -122,6 +140,17 @@
                             <label for="editUser" class="form-label">User *</label>
                             <input type="text" class="form-control" id="editUser" required>
                         </div>
+
+                        
+
+                        <div class="mb-3">
+                        <label for="editVendor" class="form-label">Vendor</label>
+                        <input type="text" class="form-control" id="editVendor">
+                        </div>
+
+
+                        
+
                         <div class="mb-3">
                             <label for="editPrice" class="form-label">Price</label>
                             <input type="number" class="form-control" id="editPrice">

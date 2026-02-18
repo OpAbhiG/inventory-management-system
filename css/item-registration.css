@@ -1,273 +1,145 @@
+/* ================================================
+   FINAL POLISHED ITEM REGISTRATION STYLES
+   ================================================ */
 
+body {
+        background-color: #f8f9fb;
+    min-height: 100vh;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+}
 
-.navbar {
-    background-color: #007bff;
+h2, h4, h5 {
+    font-weight: 700;
+    color: #0d6efd;
 }
-html {
-    scroll-behavior: smooth;
-}
+
 .card {
     border: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
 
 .form-label {
-    font-weight: bold;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.form-control, .form-select {
+    border-radius: 14px;
+    padding: 0.85rem 1.25rem;
+    font-size: 1.05rem;
+    border: 2px solid #dee2e6;
+    transition: all 0.25s ease;
+    background: white;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.3rem rgba(13,110,253,0.12);
+}
+
+.input-group-text {
+    border-radius: 14px 0 0 14px;
+    background: #f1f3f5;
+    border: 2px solid #dee2e6;
+    border-right: none;
 }
 
 .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    background: linear-gradient(90deg, #0d6efd 0%, #0a58ca 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 0.9rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(13,110,253,0.35);
 }
 
-.btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-danger {
+    border-radius: 50px;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
 }
 
-.btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #5a6268;
+.custom-fields-container {
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-height: 140px;
 }
 
 .custom-field {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 
-.custom-field input[type="text"],
-.custom-field select {
+.custom-field input, .custom-field select {
     flex: 1;
     min-width: 0;
 }
 
-.custom-field input[type="number"] {
-    flex: 1;
-    min-width: 0;
+.custom-field .btn-danger {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
+/* Mobile Optimization */
+@media (max-width: 992px) {
+    .row.g-4 > div {
+        margin-bottom: 1.25rem;
+    }
+    .card-body {
+        padding: 2rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+    .form-control, .form-select {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+    .btn-lg {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 0.9rem;
+    }
     .custom-field {
         flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
     }
-    .custom-field .col-md-4,
-    .custom-field .col-md-3,
-    .custom-field .col-md-4,
-    .custom-field .col-md-1 {
+    .custom-field .btn-danger {
         width: 100%;
+        height: auto;
+        padding: 0.6rem;
     }
 }
 
-.taller-navbar {
-    padding-top: 1rem;    /* Increases top padding */
-    padding-bottom: 1rem; /* Increases bottom padding */
-    min-height: 80px;     /* Ensures minimum height */
-    align-items: center;  /* Vertically centers content */
-}
-
-.taller-navbar .navbar-brand,
-.taller-navbar .nav-link {
-    font-size: 1.1rem;    /* Optional: Slightly larger text to match taller bar */
-}
-
-.taller-navbar .navbar-toggler {
-    padding: 0.5rem 0.75rem; /* Makes toggler comfortable */
-}
-
-/* More space between nav links */
-.navbar-nav.gap-4 {
-    gap: 2rem !important; /* Increase space between tabs */
-}
-
-/* Extra padding from right edge */
-.navbar-nav.pe-4 {
-    padding-right: 2rem !important;
-}
-
-/* Fix bounce/jump on hover/active */
-.nav-link {
-    padding: 0.5rem 1rem !important; /* Fixed padding so no shift */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth, no size change */
-    border-radius: 8px; /* Rounded corners */
-    font-size: 1rem; /* Fixed size - no increase */
-}
-
-/* Hover effect - background instead of size change */
-.nav-link:hover {
-    background-color: rgba(13, 110, 253, 0.1) !important; /* Light blue background */
-    color: #0d6efd !important;
-}
-
-/* Active page - solid background */
-.nav-link.active {
-    background-color: #0d6efd !important; /* Blue background */
-    color: white !important;
-    font-weight: bold;
-}
-
-/* More space between links and from right edge */
-.navbar-nav {
-    gap: 1rem; /* Space between tabs */
-    padding-right: 2rem; /* Space from right window */
-}
-
-/* Mobile fix */
-@media (max-width: 992px) {
-    .nav-link {
-        padding: 0.75rem 1rem !important;
-        text-align: center;
-    }
-}
-
-
-/* Profile Card - Professional Look */
-.profile-card {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    padding: 40px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.profile-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.profile-avatar {
-    width: 120px;
-    height: 120px;
-    background: #e9ecef;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 25px;
-    font-size: 4rem;
-    color: #6c757d;
-    border: 5px solid #2a8be0;
-}
-
-.profile-name {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #0c2d5e;
-    margin-bottom: 10px;
-}
-
-.profile-id {
-    font-size: 1rem;
-    color: #6c757d;
-    margin-bottom: 10px;
-}
-
-.profile-dept {
-    font-size: 1.1rem;
-    color: #495057;
-    margin-bottom: 30px;
-    font-weight: 500;
-}
-
-.profile-logout-btn {
-    background: #dc3545;
-    color: white;
-    padding: 14px 40px;
-    border-radius: 50px;
-    font-weight: 500;
-    font-size: 1.1rem;
-    width: 100%;
-    transition: all 0.3s ease;
-}
-
-.profile-logout-btn:hover {
-    background: #c82333;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(220,53,69,0.3);
-}
-
-/* Ensure Navbar Font Consistency (Override any conflict) */
-/* .navbar .nav-link {
-    font-size: 1rem !important;
-    font-weight: 500 !important;
-    font-family: 'Roboto', sans-serif !important;
-}
-
-.navbar .nav-link.active {
-    font-weight: 600 !important;
-} */
-
-/* Navbar font – match profile look */
-.custom-navbar .nav-link {
-    font-family: 'Poppins', 'Roboto', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #333 !important;
-}
-
-/* Hover */
-.custom-navbar .nav-link:hover {
-    color: #0d6efd !important;
-    background-color: rgba(13,110,253,0.08);
-}
-
-/* Active */
-.custom-navbar .nav-link.active {
-    font-weight: 400;
-    color: #0d6efd !important;
-    background-color: rgba(13,110,253,0.12);
-}
-
-
-/* Responsive */
-@media (max-width: 768px) {
-    .profile-card {
-        padding: 30px;
-    }
-    .profile-avatar {
-        width: 100px;
-        height: 100px;
-        font-size: 3rem;
-    }
-    .profile-name {
-        font-size: 1.5rem;
-    }
-}
-
-/* Base navbar link */
-.custom-navbar .nav-link {
-    font-family: 'Poppins', 'Roboto', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;               /* FIXED weight */
-    color: #333;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-
-    /* Smooth animation */
-    transition:
-        background-color 0.25s ease,
-        color 0.25s ease,
-        transform 0.2s ease,
-        opacity 0.2s ease;
-
-    will-change: transform;
-}
-
-/* Hover — subtle, no layout change */
-.custom-navbar .nav-link:hover {
-    background-color: rgba(13, 110, 253, 0.08);
-    color: #0d6efd;
-    transform: translateY(-1px);   /* micro-lift */
-}
-
-/* Active page — SAME SIZE, SAME WEIGHT */
-.custom-navbar .nav-link.active {
-    background-color: rgba(13, 110, 253, 0.15);
-    color: #0d6efd;
+/* Section Titles */
+.border-bottom {
+    border-color: rgba(13,110,253,0.15) !important;
 }

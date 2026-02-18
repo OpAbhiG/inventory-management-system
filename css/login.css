@@ -3,7 +3,8 @@
    ========================================== */
 
 body {
-    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+
+    background-color: #f8f9fb;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
 }

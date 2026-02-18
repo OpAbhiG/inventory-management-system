@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td>${item.model}</td>
                 <td>${item.serialNumber}</td>
                 <td>${item.user}</td>
+                <td>${item.vendor || '-'}</td>  <!-- ← NEW Vendor display -->
                 <td>${item.price || '-'}</td>
                 <td>${item.buyDate || '-'}</td>
                 <td>${item.extraDetails || '-'}</td>
@@ -187,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('editModel').value = item.model;
         document.getElementById('editSerialNumber').value = item.serialNumber;
         document.getElementById('editUser').value = item.user;
+        document.getElementById('editVendor').value = item.vendor || '';  // ← NEW: Load Vendor
         document.getElementById('editPrice').value = item.price || '';
         document.getElementById('editBuyDate').value = item.buyDate || '';
         document.getElementById('editExtraDetails').value = item.extraDetails || '';
@@ -252,6 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
             model: document.getElementById('editModel').value,
             serialNumber: document.getElementById('editSerialNumber').value,
             user: document.getElementById('editUser').value,
+            vendor: document.getElementById('editVendor').value || '-',  // ← NEW: Save Vendor
             price: document.getElementById('editPrice').value,
             buyDate: document.getElementById('editBuyDate').value,
             extraDetails: document.getElementById('editExtraDetails').value,

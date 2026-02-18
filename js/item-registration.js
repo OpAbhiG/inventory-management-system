@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
             model: document.getElementById('model').value,
             serialNumber: document.getElementById('serialNumber').value,
             user: document.getElementById('user').value,
+            vendor: document.getElementById('vendor').value.trim() || '-',  // ← NEW: Vendor saved
             price: document.getElementById('price').value,
             buyDate: document.getElementById('buyDate').value,
             extraDetails: document.getElementById('extraDetails').value,
